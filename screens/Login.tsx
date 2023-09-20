@@ -1,12 +1,12 @@
 // Login.tsx
 
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView, Image, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Image, TextInput, TouchableOpacity,Button } from 'react-native';
 
 const usuarioImage = require('./imagenes/usuario.png');
 const cerrarImage = require('./imagenes/cerrar.png');
 
-const Login = () => {
+export const Login = (props:any) => {
   return (
     <ScrollView style={styles.container}>
       <Text style={styles.header}>DONAVIDA+</Text>
@@ -38,7 +38,7 @@ const Login = () => {
         </TouchableOpacity>
         <View style={styles.textContainer}>
           <Text style={styles.forgotPasswordText}>Olvidé mi contraseña</Text>
-          <Text style={styles.createAccountText}>Crea tu cuenta</Text>
+          <Text style={styles.createAccountText} onPress={() => props.navigation.navigate('SignUp')}>Crea tu cuenta</Text>
         </View>
       </View>
     </ScrollView>
@@ -134,5 +134,3 @@ const styles = StyleSheet.create({
     marginTop: 4
   },
 });
-
-export default Login;
