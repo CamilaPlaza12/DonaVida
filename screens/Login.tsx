@@ -34,7 +34,7 @@ export const Login = (props:any) => {
           />
         </View>
         <TouchableOpacity style={styles.loginButton}>
-          <Text style={styles.buttonText}>Iniciar Sesión</Text>
+          <Text onPress={() => props.navigation.navigate('Home')} style={styles.buttonText}>Iniciar Sesión</Text>
         </TouchableOpacity>
         <View style={styles.textContainer}>
           <Text style={styles.forgotPasswordText}>Olvidé mi contraseña</Text>
