@@ -4,7 +4,7 @@ import React from 'react';
 import { View, Text, StyleSheet, ScrollView, Image, TextInput, TouchableOpacity,Button } from 'react-native';
 
 const usuarioImage = require('./imagenes/usuario.png');
-const cerrarImage = require('./imagenes/cerrar.png');
+const cerrarImage = require('./imagenes/candado.png');
 
 export const Login = (props:any) => {
   return (

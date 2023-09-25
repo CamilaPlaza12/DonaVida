@@ -16,8 +16,7 @@ const App = () => {
         <Stack.Screen name='SignUp' component={SignUp}/>
         <Stack.Screen name='MyProfile' component={MyProfile}/>
         <Stack.Screen name='Home' component={Home}/>
-
-        
+       
       </Stack.Navigator>
     </NavigationContainer>
   )
