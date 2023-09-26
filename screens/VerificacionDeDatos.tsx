@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
-export const VerificacionDeDatos = (props:any) => {
+export const VerificacionDeDatos = (props) => {
   const [isChecked, setIsChecked] = useState(false);
 
   const toggleCheckbox = () => {
     setIsChecked((prevChecked) => !prevChecked);
   };
 
-  // Información previamente seleccionada (falsa en este caso)
   const nombre = 'Camila Plaza';
   const tipoDonacion = 'Sangre';
   const tipoSangre = 'A+';
@@ -40,10 +39,12 @@ export const VerificacionDeDatos = (props:any) => {
       </View>
 
       <TouchableOpacity
-        onPress={() => props.navigation.navigate('Home')} // Movido el onPress a esta View
-        style={styles.continueButton} >
+        onPress={() => props.navigation.navigate('Home')}
+        style={[styles.continueButton, !isChecked && styles.disabledButton]}
+        disabled={!isChecked}
+      >
         <Text style={styles.buttonText}>Crear Cuenta</Text>
-        </TouchableOpacity>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -121,5 +122,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#660708',
     textAlign: 'center',
+  },
+  disabledButton: {
+    backgroundColor: 'rgba(255, 255, 255, 0.5)',
   },
 });
