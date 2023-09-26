@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, ScrollView, TextInput, TouchableOpacity, Text, StyleSheet, Image } from 'react-native';
 
 const usuarioImage = require('./imagenes/usuario.png');
@@ -6,7 +6,20 @@ const candadoImage = require('./imagenes/candado.png');
 const correoImage = require('./imagenes/correo-electronico.png');
 const infoImage = require('./imagenes/informacion.png');
 
-export const SignUp = () => {
+export const SignUp = (props:any) => {
+  const [selectedEmbarazo, setSelectedEmbarazo] = useState(null);
+  const [selectedMedicacion, setSelectedMedicacion] = useState(null);
+  const [showMedicationInput, setShowMedicationInput] = useState(false);
+
+  const handleOptionSelect = (option: any, question: any) => {
+    if (question === 'embarazo') {
+      setSelectedEmbarazo(option);
+    } else if (question === 'medicacion') {
+      setSelectedMedicacion(option);
+      setShowMedicationInput(option === 'Si');
+    }
+  };
+
   return (
     <ScrollView style={styles.container}>
       <Text style={styles.welcomeText}>Sing Up</Text>
@@ -57,7 +70,7 @@ export const SignUp = () => {
       </View>
 
       <View style={styles.block}>
-      <Image source={infoImage} style={styles.inputIcon} />
+        <Image source={infoImage} style={styles.inputIcon} />
         <TextInput
           style={styles.input}
           placeholder="Peso"
@@ -65,24 +78,72 @@ export const SignUp = () => {
         />
       </View>
 
-      <View style={styles.block}>
-        <Image source={infoImage} style={styles.inputIcon} />
-        <Text style={styles.label}>Tomas alguna medicación?</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="Respuesta"
-          placeholderTextColor="white"
-        />
+      <View style={styles.blockPregunta}>
+        <View style={styles.questionContainer}>
+          <Image source={infoImage} style={styles.inputIcon} />
+          <Text style={styles.pregunta}>¿Toma alguna medicación?</Text>
+        </View>
+
+        <View style={styles.optionsContainer}>
+          <TouchableOpacity
+            style={[
+              styles.optionButton,
+              selectedMedicacion === 'Si' && styles.selectedOption,
+            ]}
+            onPress={() => handleOptionSelect('Si', 'medicacion')}
+          >
+            <Text style={styles.optionText}>Sí</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={[
+              styles.optionButton,
+              selectedMedicacion === 'No' && styles.selectedOption,
+            ]}
+            onPress={() => handleOptionSelect('No', 'medicacion')}
+          >
+            <Text style={styles.optionText}>No</Text>
+          </TouchableOpacity>
+        </View>
+
+        {showMedicationInput && (
+          <View style={styles.inputBlock}>
+            <TextInput
+              style={styles.input}
+              placeholder="Nombre del medicamento"
+              placeholderTextColor="white"
+            />
+          </View>
+        )}
       </View>
 
-      <View style={styles.block}>
-        <Image source={infoImage} style={styles.inputIcon} />
-        <Text style={styles.label}>Posibilidad de Embarazo</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="Respuesta"
-          placeholderTextColor="white"
-        />
+      <View style={styles.blockPregunta}>
+        <View style={styles.questionContainer}>
+          <Image source={infoImage} style={styles.inputIcon} />
+          <Text style={styles.pregunta}>Posibilidad de Embarazo</Text>
+        </View>
+
+        <View style={styles.optionsContainer}>
+          <TouchableOpacity
+            style={[
+              styles.optionButton,
+              selectedEmbarazo === 'Si' && styles.selectedOption,
+            ]}
+            onPress={() => handleOptionSelect('Si', 'embarazo')}
+          >
+            <Text style={styles.optionText}>Sí</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={[
+              styles.optionButton,
+              selectedEmbarazo === 'No' && styles.selectedOption,
+            ]}
+            onPress={() => handleOptionSelect('No', 'embarazo')}
+          >
+            <Text style={styles.optionText}>No</Text>
+          </TouchableOpacity>
+        </View>
       </View>
 
       <View style={styles.block}>
@@ -95,7 +156,7 @@ export const SignUp = () => {
       </View>
 
       <View style={styles.block}>
-      <Image source={candadoImage} style={styles.inputIcon} />
+        <Image source={candadoImage} style={styles.inputIcon} />
         <TextInput
           style={styles.input}
           placeholder="Repetir Contraseña"
@@ -103,7 +164,9 @@ export const SignUp = () => {
         />
       </View>
 
-      <TouchableOpacity style={styles.continueButton}>
+      <TouchableOpacity
+        onPress={() => props.navigation.navigate('EligeQueDonar')}
+        style={styles.continueButton}>
         <Text style={styles.buttonText}>Continuar</Text>
       </TouchableOpacity>
     </ScrollView>
@@ -112,6 +175,7 @@ export const SignUp = () => {
 
 const styles = StyleSheet.create({
   welcomeText: {
+    marginTop: 25,
     fontSize: 40,
     fontWeight: 'bold',
     color: '#A4161A',
@@ -135,14 +199,15 @@ const styles = StyleSheet.create({
     width: 310,
     alignSelf: 'center'
   },
-  label: {
-    flex: 1,
-    fontSize: 15,
-    fontWeight: 'bold',
-    color: 'white',
-    textShadowColor: 'rgba(0, 0, 0, 0.3)',
-    textShadowOffset: { width: 2, height: 2 },
-    textShadowRadius: 4,
+  blockPregunta: {
+    flexDirection: 'column',
+    alignItems: 'center',
+    backgroundColor: '#BA181B',
+    borderRadius: 45,
+    padding: 10,
+    marginBottom: 15,
+    width: 310,
+    alignSelf: 'center',
   },
   input: {
     flex: 1,
@@ -156,22 +221,64 @@ const styles = StyleSheet.create({
   inputIcon: {
     width: 20,
     height: 20,
-    marginRight: 5,
+    marginRight: 10,
     marginLeft: 8
   },
   continueButton: {
-    backgroundColor: '#FF5252',
-    borderRadius: 10,
+    backgroundColor: '#660708',
+    borderRadius: 25,
     padding: 15,
+    marginTop: 2,
     alignItems: 'center',
-    marginTop: 15,
+    width: 270,
+    alignSelf: 'center',
     marginBottom: 35
   },
   buttonText: {
-    color: 'white',
-    fontWeight: 'bold',
     fontSize: 16,
+    fontWeight: 'bold',
+    color: 'white',
+  },
+  questionContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  pregunta: {
+    flex: 1,
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: 'white',
+  },
+  optionsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    width: 200,
+    marginTop: 12,
+  },
+  optionButton: {
+    backgroundColor: '#A4161A',
+    padding: 10,
+    borderRadius: 8,
+    width: 80,
+    color: 'white',
+  },
+  optionText: {
+    fontSize: 16,
+    color: 'black',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  selectedOption: {
+    backgroundColor: 'white',
+    color: '#A4161A',
+  },
+  inputBlock: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#BA181B',
+    borderRadius: 35,
+    padding: 10,
+    width: 310,
+    alignSelf: 'center'
   },
 });
-
-

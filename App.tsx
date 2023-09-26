@@ -4,7 +4,7 @@ import React from 'react';
 import 'react-native-gesture-handler';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
-import {Home, Login, MyProfile, SignUp} from './screens';
+import {EligeFactorRH, EligeQueDonar, EligeTipoDeSangre, Home, Login, MyProfile, SignUp, VerificacionDeDatos} from './screens';
 
 const Stack = createStackNavigator();
 
@@ -13,9 +13,13 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen options={{ headerShown: false }} name='Login' component={Login}/>
-        <Stack.Screen name='SignUp' component={SignUp}/>
+        <Stack.Screen options={{ headerShown: false }} name='SignUp' component={SignUp}/>
         <Stack.Screen name='MyProfile' component={MyProfile}/>
         <Stack.Screen name='Home' component={Home}/>
+        <Stack.Screen options={{ headerShown: false }} name='EligeQueDonar' component={EligeQueDonar}/>
+        <Stack.Screen options={{ headerShown: false }} name='EligeTipoDeSangre' component={EligeTipoDeSangre}/>
+        <Stack.Screen options={{ headerShown: false }} name='EligeFactorRH' component={EligeFactorRH}/>
+        <Stack.Screen options={{ headerShown: false }} name='VerificacionDeDatos' component={VerificacionDeDatos}/>
        
       </Stack.Navigator>
     </NavigationContainer>
