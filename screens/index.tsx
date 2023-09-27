@@ -6,6 +6,10 @@ import { EligeQueDonar } from './EligeQueDonar';
 import {EligeTipoDeSangre} from './EligeTipoDeSangre';
 import {EligeFactorRH} from './EligeFactorRH';
 import {VerificacionDeDatos} from './VerificacionDeDatos';
+import Hospitales from './Hospitales';
+import Requerimientos from './Requerimientos';
+import Proceso from './Proceso';
+import Hospital from './Hospital';
 
 export {
     Login,
@@ -15,5 +19,9 @@ export {
     EligeQueDonar,
     EligeTipoDeSangre,
     EligeFactorRH,
-    VerificacionDeDatos
+    VerificacionDeDatos,
+    Hospitales,
+    Requerimientos,
+    Proceso,
+    Hospital,
 }
