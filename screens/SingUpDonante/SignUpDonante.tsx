@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { View, ScrollView, TextInput, TouchableOpacity, Text, StyleSheet, Image } from 'react-native';
 
-const usuarioImage = require('./imagenes/usuario.png');
-const candadoImage = require('./imagenes/candado.png');
-const correoImage = require('./imagenes/correo-electronico.png');
-const infoImage = require('./imagenes/informacion.png');
+const usuarioImage = require('../imagenes/usuario.png');
+const candadoImage = require('../imagenes/candado.png');
+const correoImage = require('../imagenes/correo-electronico.png');
+const infoImage = require('../imagenes/informacion.png');
 
-export const SignUp = (props:any) => {
+export const SignUpDonante = (props:any) => {
   const [selectedEmbarazo, setSelectedEmbarazo] = useState(null);
   const [selectedMedicacion, setSelectedMedicacion] = useState(null);
   const [showMedicationInput, setShowMedicationInput] = useState(false);
@@ -165,7 +165,7 @@ export const SignUp = (props:any) => {
       </View>
 
       <TouchableOpacity
-        onPress={() => props.navigation.navigate('EligeQueDonar')}
+        onPress={() => props.navigation.navigate('EligeTipoDeSangre')}
         style={styles.continueButton}>
         <Text style={styles.buttonText}>Continuar</Text>
       </TouchableOpacity>

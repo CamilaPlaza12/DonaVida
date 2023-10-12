@@ -35,14 +35,14 @@ export const Login = (props:any) => {
         </View>
   
         <TouchableOpacity
-          onPress={() => props.navigation.navigate('Home')}
+          onPress={() => props.navigation.navigate('TabScreen')}
           style={styles.loginButton}>
           <Text style={styles.buttonText}>Iniciar Sesion</Text>
         </TouchableOpacity>
         
         <View style={styles.textContainer}>
           <Text style={styles.forgotPasswordText}>Olvidé mi contraseña</Text>
-          <Text style={styles.createAccountText} onPress={() => props.navigation.navigate('SignUp')}>Crea tu cuenta</Text>
+          <Text style={styles.createAccountText} onPress={() => props.navigation.navigate('TipoDeUsuario')}>Crea tu cuenta</Text>
         </View>
       </View>
     </ScrollView>

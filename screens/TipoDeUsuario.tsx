@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
-const masImage = require('./imagenes/mas.png');
-const menosImage = require('./imagenes/menos.png');
-
-export const EligeFactorRH = (props) => {
-  const options = ['+', '-'];
+export const TipoDeUsuario = (props: any) => {
+  const options = ['Donante', 'Hospital'];
   const [selectedOption, setSelectedOption] = useState(null);
 
   const handleOptionSelect = (option) => {
@@ -36,7 +33,7 @@ export const EligeFactorRH = (props) => {
       ))}
 
       <TouchableOpacity
-        onPress={() => props.navigation.navigate('VerificacionDeDatos')}
+        onPress={() => props.navigation.navigate('SingUpDonante')}
         style={styles.continueButton}
       >
         <Text style={styles.buttonText}>Continuar</Text>
@@ -73,7 +70,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   optionText: {
-    fontSize: 90,
+    fontSize: 45,
     fontWeight: 'bold',
     color: 'white',
     textAlign: 'center',

@@ -122,3 +122,5 @@ const styles = StyleSheet.create({
     textAlign: 'center', // Centra el texto horizontalmente
   },  
 });
+
+export default EligeTipoDeSangre;

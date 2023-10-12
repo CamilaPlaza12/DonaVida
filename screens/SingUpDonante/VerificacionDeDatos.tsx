@@ -9,7 +9,6 @@ export const VerificacionDeDatos = (props:any) => {
   };
 
   const nombre = 'Camila Plaza';
-  const tipoDonacion = 'Sangre';
   const tipoSangre = 'A+';
 
   return (
@@ -19,11 +18,6 @@ export const VerificacionDeDatos = (props:any) => {
       <View style={styles.infoBlock}>
         <Text style={styles.infoLabel}>Nombre:</Text>
         <Text style={styles.infoValue}>{nombre}</Text>
-      </View>
-
-      <View style={styles.infoBlock}>
-        <Text style={styles.infoLabel}>Tipo de Donación:</Text>
-        <Text style={styles.infoValue}>{tipoDonacion}</Text>
       </View>
 
       <View style={styles.infoBlock}>
@@ -39,7 +33,7 @@ export const VerificacionDeDatos = (props:any) => {
       </View>
 
       <TouchableOpacity
-        onPress={() => props.navigation.navigate('Home')}
+        onPress={() => props.navigation.navigate('MainMenu')}
         style={[styles.continueButton, !isChecked && styles.disabledButton]}
         disabled={!isChecked}
       >

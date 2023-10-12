@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
 
-const plaquetaImage = require('./imagenes/plaqueta.png');
-const sangreImage = require('./imagenes/gota-de-sangre.png');
-const medulaImage = require('./imagenes/medula-osea.png');
+const plaquetaImage = require('../imagenes/plaqueta.png');
+const sangreImage = require('../imagenes/gota-de-sangre.png');
+const medulaImage = require('../imagenes/medula-osea.png');
 
 export const EligeQueDonar = (props:any) => {
   const options = [
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
     width: 290,
     height: 110,
-    alignItems: 'flex-start', // Alinea el contenido a la izquierda
+    alignItems: 'flex-start',
     justifyContent: 'center',
     
   },

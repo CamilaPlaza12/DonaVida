@@ -38,12 +38,6 @@ const Requerimientos = () => {
           numColumns={3}
           contentContainerStyle={styles.iconContainer}
         />
-        <View style={styles.bottomNav}>
-        {/* Agrega aquí los íconos y etiquetas de navegación */}
-        <Text style={styles.navItem}>Inicio</Text>
-        <Text style={styles.navItem}>Buscar</Text>
-        <Text style={styles.navItem}>Perfil</Text>
-      </View>
       </View>
     );
   };
@@ -87,7 +81,7 @@ const styles = StyleSheet.create({
   circle: {
     width: 110,
     height: 110,
-    borderRadius: 50, // Hace que sea un círculo perfecto
+    borderRadius: 50,
     backgroundColor: 'white',
     margin: 10,
     marginBottom: 5,
@@ -101,39 +95,22 @@ const styles = StyleSheet.create({
     marginTop: 15,
   },
   iconText: {
-    marginTop: 5, // Espacio entre el círculo y el texto
-    textAlign: 'center', // Alinea el texto al centro
-    color: 'white', // Cambia el color del texto si es necesario
-    fontSize: 14, // Cambia el tamaño de fuente del texto si es necesario
+    marginTop: 5,
+    textAlign: 'center', 
+    color: 'white', 
+    fontSize: 14, 
   },
   textContainer: {
-    width: 110, // Ancho igual al círculo
-    alignItems: 'center', // Centrar horizontalmente
+    width: 110, 
+    alignItems: 'center', 
   },
   circleContainer:{
     alignItems: 'center',
     marginBottom: 15,
   },
   bottomTabContainer: {
-    backgroundColor: '#f2f2f2', // Light Grey Color
-    height: 60, // Adjust the height as needed
-  },
-  bottomNav: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    backgroundColor: '#fff',
-    borderTopWidth: 1,
-    borderTopColor: 'lightgray',
-    height: 60,
-    position: 'absolute', // Para posicionar en la parte inferior
-    bottom: 0, // Anclaje en la parte inferior de la pantalla
-    width: '100%', // Ancho completo
-  },
-  navItem: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: 'gray',
+    backgroundColor: '#f2f2f2', 
+    height: 60, 
   },
 });
 
