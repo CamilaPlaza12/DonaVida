@@ -33,7 +33,7 @@ export const VerificacionDeDatos = (props:any) => {
       </View>
 
       <TouchableOpacity
-        onPress={() => props.navigation.navigate('MainMenu')}
+        onPress={() => props.navigation.navigate('TabScreen')}
         style={[styles.continueButton, !isChecked && styles.disabledButton]}
         disabled={!isChecked}
       >

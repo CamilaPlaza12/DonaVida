@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, ScrollView, TextInput, TouchableOpacity, Text, StyleSheet, Image } from 'react-native';
 
-const usuarioImage = require('../imagenes/usuario.png');
+const usuarioImage = require('../imagenes/usuario-2.png');
 const candadoImage = require('../imagenes/candado.png');
 const correoImage = require('../imagenes/correo-electronico.png');
 const infoImage = require('../imagenes/informacion.png');
